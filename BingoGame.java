@@ -64,7 +64,8 @@ public class BingoGame {
 				sumAcross += card[row][column];
 				sumDown += card[column][row];
 			}
-			
+			sumDiagLeft+=card[row][row];
+			sumDiagRight+=card[row][4-row];
 			if (sumAcross == 0 || sumDown == 0) {
 				hasWon = true;
 				break;
@@ -73,7 +74,9 @@ public class BingoGame {
 			sumAcross = 0;
 			sumDown = 0;
 		}
-
+		if (sumDiagLeft==0 ||sumDiagRight==0) {
+			hasWon=true;
+		}
 		return hasWon;
 	}
 
